@@ -22,14 +22,13 @@ class ProductColorModel {
   }
 
   factory ProductColorModel.fromMap(Map<String, dynamic> map) {
-    return ProductColorModel(
-      title: map['title'] as String,
-      rgb: List < int > .from(
-        map['rgb'].map((e) => e),
-      ),
-    );
-  }
-
+  return ProductColorModel(
+    title: map['title'] as String,
+    rgb: List<int>.from(
+      (map['rgb'] ?? []).map((e) => e), // Use an empty list if null
+    ),
+  );
+ }
 }
 
 extension ProductColorXModel on ProductColorModel {

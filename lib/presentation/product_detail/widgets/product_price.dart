@@ -14,7 +14,7 @@ class ProductPrice extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Text(
-        "\$${productEntity.discountedPrice != 0 ?
+        "\P${productEntity.discountedPrice != 0 ?
         productEntity.discountedPrice.toString() : 
         productEntity.price.toString()}",
         style: const TextStyle(

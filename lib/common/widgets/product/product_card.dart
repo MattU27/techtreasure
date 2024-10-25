@@ -67,8 +67,8 @@ class ProductCard extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            productEntity.discountedPrice == 0 ? "${productEntity.price}\$" :
-                            "${productEntity.discountedPrice}\$",
+                            productEntity.discountedPrice == 0 ? "${productEntity.price}\P" :
+                            "${productEntity.discountedPrice}\P",
                             style: const TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w300,
@@ -77,7 +77,7 @@ class ProductCard extends StatelessWidget {
                           const SizedBox(width: 10, ),
                             Text(
                               productEntity.discountedPrice == 0 ? '' :
-                              "${productEntity.price}\$",
+                              "${productEntity.price}\P",
                               style: const TextStyle(
                                 fontSize: 12,
                                 color: Colors.grey,

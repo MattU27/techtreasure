@@ -32,26 +32,26 @@ class ProductModel {
 
  
   factory ProductModel.fromMap(Map<String, dynamic> map) {
-    return ProductModel(
-      categoryId: map['categoryId'] as String,
-      colors: List<ProductColorModel>.from(
-        map['colors'].map((e)=> ProductColorModel.fromMap(e))
-      ),
-      createdDate: map['createdDate'] as Timestamp,
-      discountedPrice: map['discountedPrice'] as num,
-      gender: map['gender'] as int,
-      images: List < String >.from(
-        map['images'].map((e) => e.toString()),
-      ),
-      price: map['price'] as num,
-      sizes: List < String >.from(
-        map['sizes'].map((e) => e.toString()),
-      ),
-      productId: map['productId'] as String,
-      salesNumber: map['salesNumber'] as int,
-      title: map['title'] as String,
-    );
-  }
+  return ProductModel(
+    categoryId: map['categoryId'] as String,
+    colors: List<ProductColorModel>.from(
+      (map['colors'] ?? []).map((e) => ProductColorModel.fromMap(e)), // Use an empty list if null
+    ),
+    createdDate: map['createdDate'] as Timestamp,
+    discountedPrice: map['discountedPrice'] as num,
+    gender: map['gender'] as int,
+    images: List<String>.from(
+      (map['images'] ?? []).map((e) => e.toString()), // Use an empty list if null
+    ),
+    price: map['price'] as num,
+    sizes: List<String>.from(
+      (map['sizes'] ?? []).map((e) => e.toString()), // Use an empty list if null
+    ),
+    productId: map['productId'] as String,
+    salesNumber: map['salesNumber'] as int,
+    title: map['title'] as String,
+  );
+}
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
