@@ -10,27 +10,33 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const BasicAppbar(
+    return const Scaffold(
+      appBar: BasicAppbar(
         title: Text('Settings'),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch, // Align children to stretch across the available width
           children: [
-            const MyFavortiesTile(),
-            const SizedBox(height: 15),
-            const MyOrdersTile(),
-            const SizedBox(height: 15), // Add spacing
-            _buildLogoutButton(context), // Call to the method that creates the styled logout button
+            MyFavortiesTile(),
+            SizedBox(height: 15),
+            MyOrdersTile(),
+            SizedBox(height: 15), // Add spacing
+            LogoutButton(), // Call to the LogoutButton widget
           ],
         ),
       ),
     );
   }
+}
 
-  Widget _buildLogoutButton(BuildContext context) {
+// Create a separate widget for the logout button
+class LogoutButton extends StatelessWidget {
+  const LogoutButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         showLogoutConfirmationDialog(context);
@@ -41,11 +47,11 @@ class SettingsPage extends StatelessWidget {
         decoration: BoxDecoration(
           color: AppColors.secondBackground, // Use AppColors.secondBackground
           borderRadius: BorderRadius.circular(10), // Rounded corners
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               color: Colors.black26, // Shadow color
               blurRadius: 5, // Shadow blur
-              offset: const Offset(0, 3), // Shadow position
+              offset: Offset(0, 3), // Shadow position
             ),
           ],
         ),
